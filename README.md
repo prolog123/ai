@@ -1,2 +1,2 @@
-# ArtificialIntelligence
+# Artificial-Intelligence
 Experimenting with AI
