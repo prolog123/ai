@@ -35,3 +35,24 @@ my_length([_|Tail], Length) :-
 my_length_and_reverse(List, Length, Reversed):-
     my_length(List, Length),
     my_reverse(List, Reversed).
+
+% Sum of series
+
+% The sum of an empty list is 0.
+sum([], 0).
+% The sum of a list is the head of the list plus the sum of its tail.
+sum([Head|Tail], Sum) :-
+    sum(Tail, Sum1),
+    Sum is Sum1 + Head.
+ 
+% Generate lsit from 1 to N
+generate_list(1, [1]).
+generate_list(N, List) :-
+    N > 1,
+    N1 is N - 1,
+    generate_list(N1, List1),
+    append(List1, [N], List).
+ 
+series_sum(N, Sum) :-
+    generate_list(N, List),
+    sum(List, Sum).
