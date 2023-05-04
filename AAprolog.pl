@@ -26,6 +26,7 @@ rev([H|T],R):-
 
 
 % Length of List
+my_length([],0).
 my_length([_|Tail], Length) :-
     my_length(Tail, Length1),
     Length is Length1 + 1.
