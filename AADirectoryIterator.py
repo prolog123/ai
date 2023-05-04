@@ -43,3 +43,16 @@ early_stopping=EarlyStopping(monitor='val_loss',patience=10,mode='min')
 ypred=np.argmax(pred,axis=1)
 test_generator.classes
 confusion_matrix(ypred,test_generator.classes)
+
+model.compile(optimizer=RMSprop(lr=2e-5),loss='categorical_crossentropy',metrics=['accuracy'])
+history = model.fit(train_generator,steps_per_epoch=10,epochs=50,validation_data=validation_generator,validation_steps=5,verbose=2,callbacks=[early_stopping])
+
+hist.history.keys()
+
+import matplotlib.pyplot as plt
+plt.plot(history.history['loss'],label='Training Loss')
+plt.plot(history.history['val_loss'],label='Validation Loss')
+plt.xlabel('Number of Epochs')
+plt.ylabel('Loss')
+plt.title('Training Loss v/s Validation Loss')
+plt.legend()
