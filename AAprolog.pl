@@ -1,4 +1,4 @@
-# Factorial
+% Factorial
 factorial(0, 1).
 factorial(N, Result) :-
     N > 0,
@@ -13,7 +13,7 @@ main :-
     write('The factorial of '), write(N), write(' is '), write(Result), nl.
 
 
-# Reverse List
+% Reverse List
 size([],0).
 size([_|T],N):-
   size(T,N1),
@@ -25,13 +25,13 @@ rev([H|T],R):-
     append(R1,[H],R).
 
 
-# Length of List
+% Length of List
 my_length([_|Tail], Length) :-
     my_length(Tail, Length1),
     Length is Length1 + 1.
 
 
-# Length + Reverse List
+% Length + Reverse List
 my_length_and_reverse(List, Length, Reversed):-
     my_length(List, Length),
     my_reverse(List, Reversed).
